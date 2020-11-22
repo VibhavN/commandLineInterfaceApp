@@ -1,0 +1,130 @@
+var readlineSync = require('readline-sync');
+const chalk = require('chalk');
+
+var score = 0;
+
+console.log("THE ULTIMATE " + "F" + chalk.red('.') + "R" + chalk.blue('.') + "I" + chalk.yellowBright('.') + "E" + chalk.red('.') + "N" + chalk.yellowBright('.') + "D" + chalk.blue('.') + "S" + " QUIZ!!\n")
+console.log(chalk.blue("Created by:")+ " Vibhav N.")
+console.log( chalk.black("---------------------\n"))
+
+var userName = readlineSync.question(chalk.magentaBright("Your name: "))
+console.log( chalk.yellowBright("\nWelcome ") + userName + chalk.yellowBright(" to my quiz!"))
+console.log( chalk.yellow("This quiz is comprised of 15 questions to determine your knowledge on ") + "F" + chalk.red('.') + "R" + chalk.blue('.') + "I" + chalk.yellowBright('.') + "E" + chalk.red('.') + "N" + chalk.yellowBright('.') + "D" + chalk.blue('.') + "S!\n")
+console.log(chalk.blackBright("Rules:") + "\n Just answer in" + chalk.yellowBright(" a") + " or" + chalk.yellowBright(" b") + ",no need to write the answer.\n")
+console.log("GOOD LUCK. HERE WE" + chalk.green(" GO") + "!!\n" )
+console.log( chalk.black("---------------------\n"))
+
+function play(question, answer) {
+  var userAnswer = readlineSync.question(question);
+
+  if (userAnswer.toUpperCase() === answer.toUpperCase()) {
+    console.log("\nYay, you are " + chalk.green("right!)"));
+    score = score + 1;
+    console.log(chalk.blueBright("Score: ") + score +"")
+  }
+  else {
+    console.log("\nSorry, you are " + chalk.redBright("wrong!"));
+    console.log(chalk.blueBright("Score: ") + score +"")
+  }
+  console.log( chalk.black("~~~~~~~~~~~~~~~~~~~~~~~\n"))
+}
+
+
+var questions = [
+  {
+    question: chalk.black("1.")+ " Which character has a twin?\n (a)Rachel\tor\t(b)Phoebe\n",
+    answer: "b"
+  },
+
+  {
+    question: chalk.black("2.")+ " Who was Monica’s first kiss?\n(a)Chandler\tor\t(b)Ross\n ",
+    answer: "b"
+  },
+
+  {
+    question: chalk.black("3.")+ " How many sisters does Joey have?\n(a)6\tor\t(b)7\n",
+    answer: "b"
+  },
+
+  {
+    question: chalk.black("4.")+ " How many times has Ross been married?\n(a)3\tor\t(b)4\n",
+    answer: "a"
+  },
+
+  {
+    question: chalk.black("5.")+" What nickname did Monica’s dad give her?\n(a)Tiny Harmonica\tor\t(b)Little Harmonica\n",
+    answer: "b"
+  },
+
+  {
+    question: chalk.black("6.")+ " What's the name of the dancer Joey lived with?\n(a)Janine\tor\t(b)Janice\n",
+    answer: "a"
+  },
+
+  {
+    question: chalk.black("7.")+ " Who got their own spinoff?\n(a)Joey\tor\t(b)Chandler\n",
+    answer: "a"
+  },
+
+  {
+    question: chalk.black("8.")+" What’s Phoebe’s sister’s name?\n(a)Ariel\tor\t(b)Ursula\n",
+    answer: "b"
+  },
+
+  {
+    question: chalk.black("9.")+" What is Rachel scared of?\n(a)Swings\tor\t(b)Dogs\n",
+    answer: "a"
+  },
+
+  {
+    question: chalk.black("10.")+" Who got stuck in a pair of leather pants?\n(a)Joey\tor\t(b)Ross\n",
+    answer: "b"
+  },
+
+
+  {
+    question: chalk.black("11.")+ " What is Joey’s fake name?\n(a)Ken Adams\tor\t(b)Mike Hannigan\n",
+    answer: "a"
+  },
+
+  {
+    question: chalk.black("12.")+ " What was the name of the millionaire Monica dated?\n(a)Pete\tor\t(b)John\n",
+    answer: "a"
+  },
+
+  {
+    question: chalk.black("13.")+ " What store does Phoebe hate?\n(a)Pottery Barn\tor\t(b)Crate & Barrel\n",
+    answer: "a"
+  },
+
+  {
+    question: chalk.black("14.")+" What did Joey's imaginary friend do for a living?\n(a)A Space Cowboy\tor\t(b)A Space Ranger\n",
+    answer: "a"
+  },
+
+  {
+    question: chalk.black("15.")+ " Who says the last line of the series?\n(a)Chandler\tor\t(b)Joey\n",
+    answer: "a"
+  },
+
+]
+
+for(var i=0; i < questions.length; i++ ) {
+  var currentQuestion = questions[i];
+  play(currentQuestion.question, currentQuestion.answer);
+}
+
+console.log(chalk.yellow("Congragulations!") + "\n" + chalk.yellowBright("You scored: " + score))
+
+if(score > 1 && score < 5) {
+  console.log("Sorry, but you probably need to watch/re-watch " + "F" + chalk.red('.') + "R" + chalk.blue('.') + "I" + chalk.yellowBright('.') + "E" + chalk.red('.') + "N" + chalk.yellowBright('.') + "D" + chalk.blue('.') + "S!" )
+} else  if(score > 5 && score < 10 ) {
+  console.log("You did good! Maybe Joey won't mind if you took a bite of his food ;P")
+} else if(score > 10 && score < 15){
+  console.log("You must be one of them, aren't you? You did awesome!!")
+} else if (score === 15){
+  console.log("You got all of them right! Consider changing your name to Ms.Chanandler Bong! JK ;) ")
+}
+
+console.log("\nThanks for Playing!")
+console.log("Regards, Vibhav " + chalk.red("<3"))
